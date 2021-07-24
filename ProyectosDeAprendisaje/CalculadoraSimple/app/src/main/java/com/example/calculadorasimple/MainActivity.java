@@ -2,6 +2,7 @@ package com.example.calculadorasimple;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnResta;
     private Button btnMultiplicacion;
     private Button btnDivicion;
+    private Button btnPolitica;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +39,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.btnResta = findViewById(R.id.btnResta);
         this.btnMultiplicacion = findViewById(R.id.btnMultiplicacion);
         this.btnDivicion = findViewById(R.id.btnDivicion);
+        this.btnPolitica = findViewById(R.id.btnPoliticas);
         //Establecer evento onclic
         this.btnSuma.setOnClickListener(this);
         this.btnResta.setOnClickListener(this);
         this.btnMultiplicacion.setOnClickListener(this);
         this.btnDivicion.setOnClickListener(this);
+        this.btnPolitica.setOnClickListener(this);
     }
 
     @Override
@@ -64,6 +68,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case R.id.btnDivicion:
                     r = Integer.parseInt(this.numero_1.getText().toString()) / Integer.parseInt(this.numero_2.getText().toString());
                     this.respuesta.setText(r+"");
+                    break;
+                case R.id.btnPoliticas:
+                    Intent relacion = new Intent(this,Politicas.class);
+                    startActivity(relacion);
                     break;
             }
         }catch (NumberFormatException e){
